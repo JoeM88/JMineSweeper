@@ -13,6 +13,10 @@ public class JMineSweeper {
 
         displayWelcomeMessage();
         GameBoard gameBoard = new GameBoard();
+        System.out.println("before");
+        gameBoard.displaygameBoard();
+        gameBoard.fillBoardBombs();
+        System.out.println("After");
         gameBoard.displaygameBoard();
 
     }

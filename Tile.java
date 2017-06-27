@@ -7,7 +7,6 @@ public class Tile {
     private String faceUp;
     private boolean isBomb;
 
-
     public Tile(){
         numBombsNearBy = 0;
         faceUp = "X";

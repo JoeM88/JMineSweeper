@@ -10,7 +10,7 @@ public class GameBoard {
 
     /*
     TO DO:
-        Create method to show the rest ofthe bombs when the user loses.
+        Create method to show the rest of the bombs when the user loses.
      */
     private Tile[][] gameBoard;
     private int xdim = 8;
@@ -77,20 +77,13 @@ public class GameBoard {
     }
 
 
-
-
     public void updateNearByBombs(int inputrow, int inputcol){
 
         //For (0,0)
         if(inputrow == 0 && inputcol == 0){
             for(int row = inputrow; row <= inputrow + 1; row++){
                 for(int col = inputcol; col <= inputcol + 1; col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -99,12 +92,7 @@ public class GameBoard {
         else if(inputrow == 0 &&(inputcol >= 1 && inputcol <= 6)){
             for(int row = inputrow; row <= inputrow + 1; row++){
                 for(int col = inputcol - 1; col <= inputcol + 1; col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -113,12 +101,7 @@ public class GameBoard {
         else if(inputrow == 0 && inputcol == 7){
             for(int row = inputrow; row <= inputrow + 1; row++){
                 for(int col = inputcol - 1; col <= inputcol;col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -128,12 +111,7 @@ public class GameBoard {
         else if((inputrow >= 1 && inputrow <= 6) && inputcol == 0){
             for(int  row = inputrow - 1; row <= inputrow + 1; row++){
                 for(int col = inputcol; col <= inputcol + 1; col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -142,12 +120,7 @@ public class GameBoard {
         else if(inputrow == 7 && inputcol == 0){
             for(int  row = inputrow - 1; row<= inputrow;row++){
                 for(int col = inputcol; col <= inputcol + 1;col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -156,12 +129,7 @@ public class GameBoard {
         else if(inputrow == 7 && (inputcol >= 1 && inputcol <= 6)){
             for(int row = inputrow - 1; row <= inputrow; row++){
                 for(int col = inputcol - 1; col <= inputcol + 1; col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -170,12 +138,7 @@ public class GameBoard {
         else if(inputrow == 7 && inputcol == 7){
             for(int row = inputrow - 1; row <= inputrow; row++){
                 for(int col = inputcol - 1; col <= inputcol; col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -185,12 +148,7 @@ public class GameBoard {
         else if((inputrow >= 1 && inputrow <= 6) && inputcol == 7){
             for(int row = inputrow - 1; row<= inputrow + 1; row++){
                 for(int col = inputcol - 1; col <= inputcol;col++){
-                    if(row == inputrow && col == inputcol){
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
-                        gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
+                    gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
                 }
             }
         }
@@ -199,14 +157,12 @@ public class GameBoard {
         //for the rest
            else for(int row = inputrow - 1; row <= inputrow + 1; row++){
                 for(int col = inputcol - 1; col<= inputcol + 1;col++){
-                    if(row == inputrow && col == inputcol) {
-                        gameBoard[row][col].setNumBombsNearBy(0);
-                    }else{
                         gameBoard[row][col].setNumBombsNearBy(gameBoard[row][col].getNumBombsNearBy() + 1);
-
-                    }
                 }
         }
+
+
+
 
     }
 

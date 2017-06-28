@@ -10,32 +10,26 @@ import java.util.regex.Pattern;
 public class JMineSweeper {
 
     final static String regex = "^[0-7]\\s+[0-7]$";
-
+    private static List<Pair> previousInput = new ArrayList<>();
 
     public static String askForUserInput() {
         Scanner input = new Scanner(System.in);
-        String xy = null;
-        System.out.print("Enter x and y coordinates seperated by a space: ");
-        return xy = input.nextLine();
+        System.out.print("Enter x and y coordinates starting at 0 and ending at 7, separated by a space: ");
+        return input.nextLine();
     }
 
     public static boolean isCorrectInput(String input){
-        if(input.matches(regex)){
-            return true;
-        }
-        return false;
+        return input.matches(regex);
     }
 
-    public static List<Integer> convertUserInput(String input){
-        String [] splited = input.split("\\s+");
-        List<Integer> coordinates =  new ArrayList<>();
-        for(int i = 0; i < splited.length; i++){
-            coordinates.add(Integer.parseInt(splited[i]));
-        }
-        return coordinates;
+    public static Pair convertUserInput(String input){
+        String [] splitted = input.split("\\s+");
+        return new Pair(Integer.parseInt(splitted[0]),Integer.parseInt(splitted[1]));
     }
 
-
+    public static boolean isPreviousInput(Pair pair){
+       return previousInput.contains(pair);
+    }
 
     public static void main(String[] args) {
         Boolean gameOver = false;
@@ -48,14 +42,14 @@ public class JMineSweeper {
                 gameBoard.displaygameBoard();
                 String userInput = askForUserInput();
                 if(isCorrectInput(userInput)){
-                    List<Integer> coordinates = convertUserInput(userInput);
-                    System.out.println(coordinates.toString());
-                    if(gameBoard.checkIfBomb(coordinates.get(0), coordinates.get(1))){
+                    Pair coordinates = convertUserInput(userInput);
+                    if(gameBoard.checkIfBomb(coordinates.getX(), coordinates.getY())){
                         System.out.println("You lose, tile is a bomb");
                         gameBoard.gameOver(gameBoard.getGameBoard());
                         gameOver = true;
-                    }else{
-                        gameBoard.showTileBomb(coordinates.get(0), coordinates.get(1));
+                    }
+                    else{
+                        gameBoard.showTileBomb(coordinates.getX(), coordinates.getY());
                     }
                 }
             }catch (Exception e){
@@ -63,6 +57,7 @@ public class JMineSweeper {
             }
         }
 
+        
 
 
 
